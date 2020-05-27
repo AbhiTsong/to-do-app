@@ -1,38 +1,62 @@
-.App {
+.toDoContainer{
+  background-color: blueviolet;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.toDoContainer h4 {
+  text-align: center;
+} 
+
+.toDoContainer h5{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.toDoContainer form{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  max-width: 350px;
+  margin: auto;
+  margin-top: 1.5rem;
+  justify-content: space-between;
+}
+
+.toDoContainer form input{
+  background-color: rgb(198, 100, 237);
+  border: none;
+  border-radius: 5px;
+  height: 1.5rem;
+  max-width: 300px;
+  padding: 0.8rem;
+}
+
+.toDoContainer form input::placeholder{
+  color: aliceblue;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.toDoContainer form input:focus{
+  outline: none;
+}
+
+.toDoContainer form button{
+  background-color: rgb(240, 240, 6);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
   color: white;
+  font-weight: bold;
+  height: 3rem;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.toDoContainer form button:hover{
+  background-color: rgb(240, 240, 6);
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toDoContainer form button:focus{
+  outline: none;
 }
