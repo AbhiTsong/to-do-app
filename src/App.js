@@ -1,34 +1,35 @@
 import React, { Component } from "react";
-import Input from "./Components/Input/Input";
 import "./App.css";
-export class App extends Component {
+import ToDo from "./Components/ToDo";
+
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       items: [],
-      toDoState: {
+      toDoList: {
         text: "",
         key: "",
       },
     };
   }
 
-  handleChange = (e) => {
+  handleChange = (eve) => {
     this.setState({
-      toDoState: {
-        text: e.target.value,
+      toDoList: {
+        text: eve.target.value,
         key: Date.now(),
       },
     });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let newItem = this.state.toDoState;
-    if (newItem.text !== "") {
+  handleSubmit = (eve) => {
+    eve.preventDefault();
+    let newToDoItem = this.state.toDoList;
+    if (newToDoItem.text !== "") {
       this.setState({
-        items: [...this.state.items, newItem],
-        toDoState: {
+        items: [...this.state.items, newToDoItem],
+        toDoList: {
           text: "",
           key: "",
         },
@@ -36,45 +37,44 @@ export class App extends Component {
     }
   };
 
-  taskComplete = (key) => {
-    let updatedItem = this.state.items.filter(ele => ele.key !== key);
-    this.setState({
-      items: updatedItem
-    })
-  }
+  taskDone = (key) => {
+    let updatedEvent = this.state.items;
+    let newItem = updatedEvent.filter((ele) => ele.key !== key);
 
-  updateToDo = (text, key) => {
-    let updatedItem = this.state.items;
-    updatedItem.map(ele => {
-      if(ele.key === key){
-          ele.text = text
-    
+    this.setState({
+      items: newItem,
+    });
+  };
+
+  updateToDo = (key, text) => {
+    let updatedEvent = this.state.items;
+    updatedEvent.map((e) => {
+      if (e.key === key) {
+        e.text = text;
       }
-    })
-    this.setState({
-      items: updatedItem
-    })
-  }
+    });
 
-  today = new Date();
+    this.setState({
+      items: updatedEvent,
+    });
+  };
 
   render() {
     return (
       <div className="toDoContainer">
-        <h4>To Do List</h4>
-        <h5>
-          Date:{" "}
-          {` ${this.today.getDate()} / ${this.today.getMonth()} / ${this.today.getFullYear()}`}{" "}
-        </h5>
-        <Input toDoItem={this.state.items} taskComplete={this.taskComplete} updateToDo={this.updateToDo}/>
+        <ToDo
+          list={this.state.items}
+          handleClick={this.taskDone}
+          updateToDo={this.updateToDo}
+        />
         <form onSubmit={this.handleSubmit}>
           <input
-            placeholder="Add Item"
             type="text"
-            value={this.state.toDoState.text}
+            value={this.state.toDoList.text}
             onChange={this.handleChange}
+            placeholder="Add Task"
           />
-          <button>Add Item</button>
+          <button> Add Item </button>
         </form>
       </div>
     );

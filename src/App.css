@@ -29,11 +29,13 @@
   height: 1.5rem;
   max-width: 300px;
   padding: 0.8rem;
+  color: aliceblue;
+  font-size: medium;
 }
 
 .toDoContainer form input::placeholder{
   color: aliceblue;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: larger;
 }
 
