@@ -1,0 +1,30 @@
+.toDoItems {
+  max-width: 350px;
+  background-color: rgb(152, 76, 223);
+  margin: 0.5rem auto;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 0.1rem;
+  position: relative;
+}
+
+.toDoItems p {
+  padding-left: 0.8rem;
+}
+
+.toDoItems p input{
+ background-color: transparent;
+ border: none;
+ color: aliceblue;
+ font-size: 1rem
+}
+
+.toDoItems p input:focus{
+ outline: none;
+}
+
+.toDoItems span {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
