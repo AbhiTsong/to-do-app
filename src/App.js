@@ -24,14 +24,15 @@ function App() {
   };
 
   let updateToDo = (value, key) => {
-    let allItem = items.map((e) => {
-      if (e.key === key) {
-        e.text = value;
+    const allItem = items.map(item => {
+      const newItem = {...item};
+      if (item.key === key) {
+        newItem.text = value;
       }
-      addItem((prevState) => {
-        return [...prevState, allItem];
-      });
+      return newItem;
     });
+    console.log(...allItem);
+    addItem(allItem);
   };
 
   return (
